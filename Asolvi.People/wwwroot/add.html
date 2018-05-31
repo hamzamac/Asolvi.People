@@ -1,0 +1,18 @@
+<div class="w3-container w3-content w3-theme-l5" ng-controller="POSTController">
+<h2>Add Person</h2>
+<form ng-submit="submit()">
+    <label><strong>First Name</strong></label>
+    <input type="text" class="w3-input w3-border" ng-model="user.FirstName" required>
+    <br>
+    <label><strong>Last Name</strong></label>
+    <input type="text" class="w3-input w3-border" ng-model="user.LastName" required>
+    <br>
+    <label><strong>Age</strong></label>
+    <input type="number" class="w3-input w3-border" ng-model="user.Age" required>
+    <br>
+    <p>
+        <button type="submit" id="submit" value="Submit" class="w3-btn w3-theme-d3">Add</button></p>
+    </p>
+    
+</form>
+</div> 

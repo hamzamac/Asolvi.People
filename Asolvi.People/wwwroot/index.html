@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+</head>
+
+<body ng-app="PeopleApp"  class="w3-theme-l4">
+    <div class="w3-bar w3-theme-d4" >
+        <a href="#/!" class="w3-bar-item w3-button"><strong>PeopleApp</strong></a>
+        <a href="#/!" class="w3-bar-item w3-button">View</a>
+        <a href="#!add" class="w3-bar-item w3-button">Add</a>
+    </div>
+
+    <div ng-view class="w3-container " >
+            
+    </div>
+
+    <script>
+        var app = angular.module("PeopleApp", ["ngRoute"]);
+        //routing configuration
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl : "main.html",
+                controller : "GetController"
+            })
+            .when("/add", {
+                templateUrl : "add.html",
+                controller : "POSTController"
+            });
+        });
+        //getting data from web API
+        app.controller('GetController', function($scope, $http) {
+            $scope.editedPerson = {}; 
+            $http.get("/api/persons")
+            .then(function(response) {
+                    $scope.persons = response.data;
+                });
+
+            $scope.edit = function(person){
+                document.getElementById('editModal').style.display='block';
+                $scope.editedPerson = person;
+            };
+
+            //Deleting data through API
+            $scope.delete = function(id){
+                $http.delete('/api/persons/' + id)
+                .then(function(){window.location.href ='#/!';}, function(){alert('Delete operation failed!');window.location.href ='#/!';});
+            };  
+
+            // Update data through API
+             $scope.update = function(){
+                var req = {
+                    method: 'PUT',
+                    url: '/api/persons/' + $scope.editedPerson.id,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify($scope.editedPerson)
+                    }
+                    
+                    $http(req)
+                    .then(function(){window.location.href ='#/!';}, function(err){alert('Update operation failed');});
+            };            
+
+        });
+
+        //Adding data through API
+        app.controller('POSTController', function($scope,$http) {
+            $scope.user = {};
+            $scope.submit = function() {
+                $scope.user.Id=0;
+                var req = {
+                    method: 'POST',
+                    url: '/api/persons',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify($scope.user)
+                    }
+                    
+                    $http(req)
+                    .then(function(suc){window.location.href ='#/!';}, function(err){alert('Failed to add new person');});
+                };
+        });
+
+    </script>
+</body>
+</html>
