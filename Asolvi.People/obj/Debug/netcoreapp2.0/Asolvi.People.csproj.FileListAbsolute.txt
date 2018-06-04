@@ -9,3 +9,14 @@ C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.AssemblyInfo.cs
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.dll
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.pdb
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\Asolvi.People.deps.json
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\Asolvi.People.runtimeconfig.json
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\Asolvi.People.runtimeconfig.dev.json
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\Asolvi.People.dll
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\Asolvi.People.pdb
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.csproj.CoreCompileInputs.cache
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.AssemblyInfoInputs.cache
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.AssemblyInfo.cs
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.dll
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.pdb
+C:\Users\Makame\Documents\Projects\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.csprojAssemblyReference.cache

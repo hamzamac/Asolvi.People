@@ -17,15 +17,15 @@ namespace Asolvi.People.Models
         private int _rowId;
 
         public JsonDb(IConfiguration configuration)
-        {
+        {   
             _jsonFilePath = configuration.GetConnectionString("JSONFilePath");
-            _dataset = this.Fetch();
+            _dataset = this.Fetch().GetAwaiter().GetResult();
             _table = (JArray)_dataset["person"];
-            _rowId = _table.Count();
+            _rowId = (int)(JValue)_dataset["indexTracker"];
         }
 
         // Read data from dataset
-        private JObject Fetch()
+        private async Task<JObject> Fetch()
         {
             JObject dataset;
             try
@@ -33,16 +33,16 @@ namespace Asolvi.People.Models
                 if(!File.Exists(_jsonFilePath))
                 {
                     //initialize a database file
-                    File.WriteAllText(_jsonFilePath, "{'person':[]}");
+                    File.WriteAllText(_jsonFilePath, "{'person':[],'indexTracker': 0}");
                 }
                 using (StreamReader reader = File.OpenText(_jsonFilePath))
                 {
-                    dataset = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+                    dataset = (JObject) await JToken.ReadFromAsync(new JsonTextReader(reader));
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {   
-                dataset = JObject.Parse("{'person':[]}");
+                dataset = JObject.Parse("{'person':[],'indexTracker': 0}");
                 
             }
 
@@ -51,14 +51,14 @@ namespace Asolvi.People.Models
 
         public void SaveChanges()
         {
-            //save changes to json file on dis
+            //save changes to json file on disk
             JsonSerializer serializer = new JsonSerializer();
             serializer.NullValueHandling = NullValueHandling.Ignore;
-
+            _dataset["indexTracker"] = _rowId;
             using (StreamWriter sw = new StreamWriter(_jsonFilePath))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, _dataset);
+                 serializer.Serialize(writer, _dataset);
             }
         }
 
@@ -95,6 +95,7 @@ namespace Asolvi.People.Models
             person.Id = NextId();
             JObject personJson = (JObject)JToken.FromObject(person);
             _table.Add(personJson);
+
             
         }
 
