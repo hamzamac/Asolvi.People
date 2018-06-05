@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Cors;
 using Asolvi.People.Models;
 
 namespace Asolvi.People
@@ -25,7 +24,7 @@ namespace Asolvi.People
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddCors();
+            
             services.AddMvc();
 
             services.AddSingleton<ICrudRepository<Person>,PersonRepository>();
@@ -41,7 +40,7 @@ namespace Asolvi.People
             }
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            //app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            
             app.UseMvc();
         }
     }
