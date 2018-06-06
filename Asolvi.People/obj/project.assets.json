@@ -12668,11 +12668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Makame\\Documents\\Projects\\Asolvi.People\\Asolvi.People\\Asolvi.People.csproj",
+      "projectUniqueName": "C:\\Users\\Makame\\source\\repos\\Asolvi.People\\Asolvi.People\\Asolvi.People.csproj",
       "projectName": "Asolvi.People",
-      "projectPath": "C:\\Users\\Makame\\Documents\\Projects\\Asolvi.People\\Asolvi.People\\Asolvi.People.csproj",
+      "projectPath": "C:\\Users\\Makame\\source\\repos\\Asolvi.People\\Asolvi.People\\Asolvi.People.csproj",
       "packagesPath": "C:\\Users\\Makame\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Makame\\Documents\\Projects\\Asolvi.People\\Asolvi.People\\obj\\",
+      "outputPath": "C:\\Users\\Makame\\source\\repos\\Asolvi.People\\Asolvi.People\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

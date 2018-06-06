@@ -14,30 +14,32 @@
         <a href="#!add" class="w3-bar-item w3-button">Add</a>
     </div>
 
-    <div ng-view class="w3-container " >
+    <div ng-view class="w3-container" >
             
     </div>
 
     <script>
         var app = angular.module("PeopleApp", ["ngRoute"]);
         //routing configuration
-        app.config(function($routeProvider) {
+        app.config(function ($routeProvider) {
+
             $routeProvider
             .when("/", {
-                templateUrl : "main.html",
-                controller : "GetController"
+                templateUrl : "main.html"               
             })
             .when("/add", {
                 templateUrl : "add.html",
                 controller : "POSTController"
             });
         });
+
         //getting data from web API
         app.controller('GetController', function($scope, $http) {
-            $scope.editedPerson = {}; 
+            $scope.editedPerson = {};
+
             $http.get("/api/persons")
             .then(function(response) {
-                    $scope.persons = response.data;
+                $scope.persons = response.data;
                 });
 
             $scope.edit = function(person){
