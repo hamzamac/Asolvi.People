@@ -37,6 +37,7 @@
         //getting data from web API
         app.controller('GetController', function($scope, $http) {
             $scope.editedPerson = {};
+            $scope.originalPerson = {};
 
             $http.get("/api/persons")
             .then(function(response) {
@@ -44,8 +45,9 @@
                 });
 
             $scope.edit = function(person){
-                document.getElementById('editModal').style.display='block';
-                $scope.editedPerson = person;
+                document.getElementById('editModal').style.display = 'block';
+                $scope.originalPerson = person;
+                $scope.editedPerson = angular.copy(person);
             };
 
             //Deleting data through API
