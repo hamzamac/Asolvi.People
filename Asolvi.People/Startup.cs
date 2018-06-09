@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Asolvi.People.Models;
+using JSONDb;
 
 namespace Asolvi.People
 {
@@ -26,9 +27,8 @@ namespace Asolvi.People
         {
             
             services.AddMvc();
-
-            services.AddSingleton<ICrudRepository<Person>,PersonRepository>();
-            services.AddSingleton<IJsonDb<Person>,JsonDb>();
+            services.AddSingleton<IDBContext, PeopoleDbContext>();
+            services.AddSingleton<ICrudRepository<Person>,PersonRepository>();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

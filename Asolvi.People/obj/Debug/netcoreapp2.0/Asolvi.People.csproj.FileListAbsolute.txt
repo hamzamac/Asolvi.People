@@ -9,3 +9,6 @@ C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.AssemblyInfo.cs
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.dll
 C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.pdb
+C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\JSONDb.dll
+C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\bin\Debug\netcoreapp2.0\JSONDb.pdb
+C:\Users\Makame\source\repos\Asolvi.People\Asolvi.People\obj\Debug\netcoreapp2.0\Asolvi.People.csproj.CopyComplete
