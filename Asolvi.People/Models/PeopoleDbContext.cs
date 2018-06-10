@@ -11,7 +11,7 @@ namespace Asolvi.People.Models
     {
         public PeopoleDbContext(IConfiguration configuration) :base(configuration.GetConnectionString("JSONFilePath"))
         {
-            Persons = new Dataset<Person>(database);
+            Persons = new Dataset<Person>(_database);
         }
 
         public Dataset<Person> Persons { get; set; }

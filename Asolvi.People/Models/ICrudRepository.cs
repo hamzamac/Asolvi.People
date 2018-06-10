@@ -9,8 +9,8 @@ namespace Asolvi.People.Models
     {
         void Add(T value);
         IEnumerable<T> GetAll();
-        T Find(int id);
+        T Find(long id);
         void Update(T value);
-        void Remove(int id);
+        void Remove(long id);
     }
 }

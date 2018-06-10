@@ -11,16 +11,15 @@ namespace JSONDb
 {
     public class DBContext: IDBContext
     {
-        protected JObject database;
-        private string jsonFilePath;
+        protected JObject _database;
+        private string _jsonFilePath;
 
         public DBContext(string jsonFilePath)
         {
             //initialize the database => fetch
-            this.jsonFilePath = jsonFilePath;
-            this.database = this.Fetch(jsonFilePath).GetAwaiter().GetResult();
+            _jsonFilePath = jsonFilePath;
+            _database = Fetch(jsonFilePath).GetAwaiter().GetResult();
         }
-
 
         private async Task<JObject> Fetch(string jsonFilePath)
         {
@@ -30,7 +29,7 @@ namespace JSONDb
                 if (!File.Exists(jsonFilePath))
                 {
                     //TODO initialize a database file with all attributes of Dataset object
-                    File.WriteAllText(jsonFilePath, "{'system':{'values':[],'index':0}}");
+                    File.WriteAllText(jsonFilePath, "{'system':{'rows':[],'index':0}}");
                 }
                 using (StreamReader reader = File.OpenText(jsonFilePath))
                 {
@@ -39,10 +38,8 @@ namespace JSONDb
             }
             catch (Exception)
             {
-                database = JObject.Parse("{'system':{'values':[],'index':0}}");
-
+                database = JObject.Parse("{'system':{'rows':[],'index':0}}");
             }
-
             return database;
         }
 
@@ -53,11 +50,11 @@ namespace JSONDb
 
             serializer.NullValueHandling = NullValueHandling.Ignore;
 
-            using (StreamWriter sw = new StreamWriter(this.jsonFilePath))
+            using (StreamWriter sw = new StreamWriter(_jsonFilePath))
 
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                serializer.Serialize(writer, this.database);
+                serializer.Serialize(writer, _database);
             }
         }
     }

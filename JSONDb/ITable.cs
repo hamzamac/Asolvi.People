@@ -4,8 +4,8 @@ using System.Text;
 
 namespace JSONDb
 {
-    public interface IDBContext
+    public interface ITable
     {
-        void SaveChanges();
+        long Id { get; set; }
     }
 }

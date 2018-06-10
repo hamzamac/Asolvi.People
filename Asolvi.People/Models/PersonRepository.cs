@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using JSONDb;
 
 namespace Asolvi.People.Models
 {
@@ -21,7 +20,7 @@ namespace Asolvi.People.Models
 
         public IEnumerable<Person> GetAll() => _db.Persons.GetAll();
 
-        public Person Find(int id) => (Person)_db.Persons.Find(id);
+        public Person Find(long id) => (Person)_db.Persons.Find(id);
 
         public void Update(Person person)
         {
@@ -29,7 +28,7 @@ namespace Asolvi.People.Models
             _db.SaveChanges();
         }
 
-        public void Remove(int id)
+        public void Remove(long id)
         {
             _db.Persons.Remove(id);
             _db.SaveChanges();
