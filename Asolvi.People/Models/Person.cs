@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Asolvi.People.Models
 {
-    public class Person: ITable
+    public class Person
     {
         public int Id { get; set; }
         public string  FirstName { get; set; }

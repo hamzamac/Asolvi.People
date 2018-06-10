@@ -8,9 +8,8 @@ namespace JSONDb
     {
         IEnumerable<E> GetAll();
         object Find(int id);
-        void Add(object value);
-        void SaveChanges();
-        void Update(object value);
+        void Add(E value);
+        void Update(E value);
         void Remove(int id);
     }
 }

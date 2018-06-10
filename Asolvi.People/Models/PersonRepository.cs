@@ -16,7 +16,7 @@ namespace Asolvi.People.Models
         public void Add(Person person)
         {
             _db.Persons.Add(person);
-            _db.Persons.SaveChanges();
+            _db.SaveChanges();
         }
 
         public IEnumerable<Person> GetAll() => _db.Persons.GetAll();
@@ -26,13 +26,13 @@ namespace Asolvi.People.Models
         public void Update(Person person)
         {
             _db.Persons.Update(person);
-            _db.Persons.SaveChanges();
+            _db.SaveChanges();
         }
 
         public void Remove(int id)
         {
             _db.Persons.Remove(id);
-            _db.Persons.SaveChanges();
+            _db.SaveChanges();
         }
 
     }
