@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Asolvi.People.Models
 {
-    public class Person: ITable
+    public class Location :ITable
     {
         public int Id { get; set; }
-        public string  FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
     }
 }
